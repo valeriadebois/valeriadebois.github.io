@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Valeria De Bois</title>
+    <meta name="description" content="Read the latest nutrition insights and health tips from Valeria De Bois, Nutritionist.">
+    
+    <!-- Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- BASE STYLES --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --card-bg: #f4f2eb;
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 430px;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        /* --- HEADER & MENU --- */
+        header {
+            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: var(--bg-color);
+        }
+
+        .menu-btn {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.95);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-overlay.active { display: flex; }
+        .menu-overlay a {
+            font-family: var(--font-sans);
+            font-size: 24px;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        /* --- BLOG PAGE STYLES --- */
+        .blog-hero {
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: var(--font-sans);
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-subtitle {
+            font-size: 17px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Blog Grid - Responsive 2-column layout */
+        .blog-grid {
+            padding: 0 20px 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 100%;
+        }
+
+        /* 2-column layout when there are multiple posts */
+        @media (min-width: 400px) {
+            .blog-grid.multi-posts {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+        }
+
+        .blog-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #e0dfd5;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .blog-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Smaller images for 2-column layout */
+        .blog-grid.multi-posts .blog-card img {
+            height: 120px;
+        }
+
+        .blog-card-content {
+            padding: 20px 15px;
+        }
+
+        /* Smaller text for 2-column layout */
+        .blog-grid.multi-posts .blog-card-content {
+            padding: 15px 10px;
+        }
+
+        .post-date {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .post-title {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        /* Smaller title for 2-column layout */
+        .blog-grid.multi-posts .post-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .post-excerpt {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        /* Smaller excerpt for 2-column layout */
+        .blog-grid.multi-posts .post-excerpt {
+            font-size: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Back link */
+        .back-home {
+            margin-top: 20px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 900;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            color: var(--text-color);
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
+            color: #666;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .empty-state p {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- HEADER WITH MENU -->
+        <header>
+            <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+        </header>
+
+        <!-- Menu Overlay -->
+        <div class="menu-overlay" id="menuOverlay">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="#" onclick="toggleMenu()">Close</a>
+        </div>
+
+        <!-- BLOG HERO SECTION -->
+        <main class="blog-hero">
+            <h1 class="page-title">Blog</h1>
+            <p class="page-subtitle">
+                Discover nutrition insights, healthy recipes, and wellness tips to help you achieve optimal health.
+            </p>
+        </main>
+
+        <!-- BLOG POSTS GRID -->
+        <section class="blog-grid" id="blog-grid">
+            <!-- PCOS Nutrition Post -->
+            <article class="blog-card">
+                <a href="pcos-nutrition.html">
+                    <img src="assets/img/veggies_plate.jpg" alt="PCOS Nutrition Guide">
+                    <div class="blog-card-content">
+                        <div class="post-date">01.03.26</div>
+                        <h3 class="post-title">NUTRITION FOR PCOS</h3>
+                        <p class="post-excerpt">Polycystic Ovary Syndrome affects millions of women worldwide. Learn how targeted nutrition can help manage symptoms and improve your quality of life through evidence-based dietary strategies.</p>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Future posts will be added here -->
+            <!-- Example of how it will look with more posts:
+            <article class="blog-card">
+                <a href="future-post.html">
+                    <img src="assets/img/future-post.jpg" alt="Future Post">
+                    <div class="blog-card-content">
+                        <div class="post-date">15.03.26</div>
+                        <h3 class="post-title">ANOTHER NUTRITION TOPIC</h3>
+                        <p class="post-excerpt">Description of another interesting nutrition topic...</p>
+                    </div>
+                </a>
+            </article>
+            -->
+        </section>
+
+        <div class="back-home">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR MENU AND GRID LAYOUT -->
+    <script>
+        function toggleMenu() {
+            var overlay = document.getElementById("menuOverlay");
+            overlay.classList.toggle("active");
+        }
+
+        // Auto-detect when to use 2-column layout
+        document.addEventListener('DOMContentLoaded', function() {
+            var blogGrid = document.getElementById('blog-grid');
+            var blogCards = blogGrid.querySelectorAll('.blog-card');
+            
+            // Add multi-posts class when there are 2 or more posts
+            if (blogCards.length >= 2) {
+                blogGrid.classList.add('multi-posts');
+            }
+        });
+    </script>
+</body>
+</html>

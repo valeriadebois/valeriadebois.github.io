@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition for PCOS - Valeria De Bois</title>
+    <meta name="description" content="Learn how targeted nutrition can help manage PCOS symptoms and improve quality of life.">
+    
+    <!-- Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- BASE STYLES --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --card-bg: #f4f2eb;
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 430px;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        /* --- HEADER & MENU --- */
+        header {
+            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: var(--bg-color);
+        }
+
+        .menu-btn {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.95);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-overlay.active { display: flex; }
+        .menu-overlay a {
+            font-family: var(--font-sans);
+            font-size: 24px;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        /* --- BLOG POST STYLES --- */
+        .single-post {
+            text-align: left;
+        }
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-top: -60px;
+            margin-bottom: 20px;
+        }
+        .single-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .post-date {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        .post-title {
+            font-family: var(--font-sans);
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .single-content {
+            padding: 0 25px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .single-content img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 30px 0;
+            object-fit: cover;
+        }
+        .single-content strong {
+            font-family: var(--font-sans);
+            font-weight: 900;
+        }
+
+        /* Back link */
+        .back-home {
+            margin-top: 40px;
+            text-align: center;
+            padding: 0 25px;
+        }
+
+        .back-link {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 900;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            color: var(--text-color);
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 480px) {
+            .single-content {
+                padding: 0 20px;
+            }
+            .post-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- HEADER WITH MENU -->
+        <header>
+            <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+        </header>
+
+        <!-- Menu Overlay -->
+        <div class="menu-overlay" id="menuOverlay">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="#" onclick="toggleMenu()">Close</a>
+        </div>
+
+        <!-- PCOS NUTRITION BLOG POST -->
+        <article class="single-post">
+            <img src="assets/img/pcos.png" alt="PCOS Nutrition Hero" class="hero-image">
+            <div class="single-header">
+                <div class="post-date">01.03.26</div>
+                <h1 class="post-title">NUTRITION FOR PCOS: A HOLISTIC APPROACH</h1>
+            </div>
+            <div class="single-content">
+                <p>Polycystic Ovary Syndrome (PCOS) is one of the most common hormonal disorders affecting women of reproductive age. As a nutritionist, I've seen firsthand how the right dietary approach can significantly improve symptoms and quality of life for women with PCOS.</p>
+                
+                <img src="assets/img/kefir.jpg" alt="Kefir - probiotic food for PCOS">
+                
+                <p>PCOS often involves insulin resistance, which means your body has difficulty using insulin effectively. This can lead to weight gain, difficulty losing weight, and increased cravings for sugary foods. The good news? Nutrition can be a powerful tool to help manage these symptoms.</p>
+                
+                <p><strong>Key nutritional strategies for PCOS include:</strong></p>
+                
+                <p>• Focus on complex carbohydrates with a low glycemic index<br>
+                • Include plenty of fiber-rich vegetables and fruits<br>
+                • Choose lean proteins at each meal<br>
+                • Incorporate healthy fats like omega-3 fatty acids<br>
+                • Consider anti-inflammatory foods</p>
+                
+                <img src="assets/img/veggies_plate.jpg" alt="Healthy vegetable plate for PCOS nutrition">
+                
+                <p>Remember, every woman's experience with PCOS is unique. What works for one person may not work for another, which is why personalized nutrition plans are so important. If you're struggling with PCOS symptoms, consider working with a qualified nutritionist who can help you develop a sustainable, individualized approach.</p>
+                
+                <p>Don't let PCOS control your life. With the right nutritional support and lifestyle changes, you can take back control and feel your best.</p>
+            </div>
+
+            <div class="back-home">
+                <a href="index.html" class="back-link">← Back to Home</a>
+            </div>
+        </article>
+    </div>
+
+    <!-- JAVASCRIPT FOR MENU -->
+    <script>
+        function toggleMenu() {
+            var overlay = document.getElementById("menuOverlay");
+            overlay.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
