@@ -89,7 +89,7 @@
         .logo-placeholder {
             width: 150px;
             height: 150px;
-            background-color: #e0e0e0;
+            background-color: #ffffff;
             margin: 0 auto 20px auto;
             display: flex;
             align-items: center;
@@ -112,6 +112,7 @@
         .home-intro {
             font-size: 17px;
             line-height: 1.5;
+            margin-top: 40px;
             margin-bottom: 50px;
         }
         .home-footer {
@@ -213,8 +214,8 @@
         <!-- MENU OVERLAY (Javascript lo mostra/nasconde) -->
         <div id="menuOverlay" class="menu-overlay">
             <a href="#" onclick="toggleMenu()">Home</a>
+            <a href="about.html" onclick="toggleMenu()">Chi Sono</a>
             <a href="#" onclick="toggleMenu()">Blog</a>
-            <a href="#" onclick="toggleMenu()">Chi Sono</a>
             <a href="#" onclick="toggleMenu()">Contatti</a>
             <button class="menu-btn" style="margin-top: 40px;" onclick="toggleMenu()">CHIUDI [X]</button>
         </div>
@@ -223,10 +224,10 @@
 
         <!-- 1. SIMULAZIONE HOME PAGE -->
         <main class="home-section">
-            <div class="logo-placeholder">LOGO QUI</div>
-            <h1 class="home-title">Valeria<br>De Bois</h1>
-            <h2 class="home-subtitle">Biologa nutrizionista</h2>
-            
+            <div class="logo-placeholder">
+                <img src="assets/img/logo_landing.svg" alt="Valeria De Bois Logo" />
+            </div>
+
             <p class="home-intro">
                 Welcome to Food for Balance!<br>
                 I'm Valeria de Bois, a passionate advocate for balanced nutrition and holistic wellness. My journey began with a simple belief: that food should nourish both body and soul.
