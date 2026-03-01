@@ -45,11 +45,13 @@
         /* --- HEADER & MENU --- */
         header {
             padding: 30px 0;
+            position: relative;
+            z-index: 10;
         }
 
         .menu-btn {
             font-family: var(--font-sans);
-            font-size: 14px;
+            font-size: 20px;
             font-weight: 900;
             letter-spacing: 2px;
             background: none;
@@ -167,9 +169,9 @@
 
         <!-- Menu Overlay -->
         <div class="menu-overlay" id="menuOverlay">
-            <a href="../index.html">Home</a>
-            <a href="../about.html">About</a>
-            <a href="../blog.html">Blog</a>
+            <a href="../index.html" onclick="toggleMenu()">Home</a>
+            <a href="../about.html" onclick="toggleMenu()">About</a>
+            <a href="../blog.html" onclick="toggleMenu()">Blog</a>
             <a href="#" onclick="toggleMenu()">Close</a>
         </div>
 
