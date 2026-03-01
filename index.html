@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valeria De Bois - Biologa Nutrizionista</title>
+    
+    <!-- Importazione dei Font da Google Fonts (Montserrat per titoli/menu, Lora per il testo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- STILI BASE E VARIABILI --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --card-bg: #f4f2eb; /* Beige chiaro per le card degli articoli */
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Contenitore principale (simula la larghezza di uno smartphone per rispettare il design) */
+        .mobile-container {
+            width: 100%;
+            max-width: 430px; /* Larghezza tipica di un iPhone 14 Pro */
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        /* --- HEADER E MENU --- */
+        header {
+            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .menu-btn {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Menu Overlay (Nascosto di default) */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.95);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-overlay.active { display: flex; }
+        .menu-overlay a {
+            font-family: var(--font-sans);
+            font-size: 24px;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        /* --- SEZIONE HOME --- */
+        .home-section {
+            padding: 20px 40px;
+        }
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: #e0e0e0;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+        }
+        .home-title {
+            font-family: var(--font-sans);
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+        .home-subtitle {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+        .home-intro {
+            font-size: 17px;
+            line-height: 1.5;
+            margin-bottom: 50px;
+        }
+        .home-footer {
+            margin-top: 40px;
+        }
+        .home-footer p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .home-footer a {
+            display: block;
+            font-family: var(--font-sans);
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* --- SEZIONE LISTA ARTICOLI (CARD) --- */
+        .blog-list {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .blog-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #e0dfd5;
+            text-align: center;
+        }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-card-content {
+            padding: 20px 30px;
+        }
+        .post-date {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        .post-title {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .post-excerpt {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        /* --- SEZIONE ARTICOLO SINGOLO --- */
+        .single-post {
+            text-align: left;
+        }
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-top: -60px; /* Fa salire l'immagine sotto l'header */
+            margin-bottom: 20px;
+        }
+        .single-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .single-content {
+            padding: 0 25px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .single-content img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 30px 0;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+
+        <!-- HEADER CON MENU CENTRATO -->
+        <header>
+            <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+        </header>
+
+        <!-- MENU OVERLAY (Javascript lo mostra/nasconde) -->
+        <div id="menuOverlay" class="menu-overlay">
+            <a href="#" onclick="toggleMenu()">Home</a>
+            <a href="#" onclick="toggleMenu()">Blog</a>
+            <a href="#" onclick="toggleMenu()">Chi Sono</a>
+            <a href="#" onclick="toggleMenu()">Contatti</a>
+            <button class="menu-btn" style="margin-top: 40px;" onclick="toggleMenu()">CHIUDI [X]</button>
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px dashed #ccc;">
+
+        <!-- 1. SIMULAZIONE HOME PAGE -->
+        <main class="home-section">
+            <div class="logo-placeholder">LOGO QUI</div>
+            <h1 class="home-title">Valeria<br>De Bois</h1>
+            <h2 class="home-subtitle">Biologa nutrizionista</h2>
+            
+            <p class="home-intro">
+                Welcome to Food for Balance!<br>
+                I'm Valeria de Bois, a passionate advocate for balanced nutrition and holistic wellness. My journey began with a simple belief: that food should nourish both body and soul.
+            </p>
+
+            <div class="home-footer">
+                <p>Follow me or write</p>
+                <a href="#">INSTAGRAM</a>
+                <a href="#">EMAIL</a>
+            </div>
+        </main>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px dashed #ccc;">
+
+        <!-- 2. SIMULAZIONE LISTA ARTICOLI BLOG -->
+        <section class="blog-list">
+            <!-- Card 1 -->
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/400x200" alt="Anteprima articolo">
+                <div class="blog-card-content">
+                    <div class="post-date">12.03.26</div>
+                    <h3 class="post-title">ARTICOLO BLOG</h3>
+                    <p class="post-excerpt">Welcome to Food for Balance! I'm Valeria de Bois, a passionate advocate for balanced nutrition and holistic wellness...</p>
+                </div>
+            </article>
+            <!-- Card 2 -->
+            <article class="blog-card">
+                <img src="https://via.placeholder.com/400x200" alt="Anteprima articolo">
+                <div class="blog-card-content">
+                    <div class="post-date">12.03.26</div>
+                    <h3 class="post-title">ARTICOLO BLOG</h3>
+                    <p class="post-excerpt">Welcome to Food for Balance! I'm Valeria de Bois, a passionate advocate for balanced nutrition and holistic wellness...</p>
+                </div>
+            </article>
+        </section>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px dashed #ccc;">
+
+        <!-- 3. SIMULAZIONE ARTICOLO SINGOLO -->
+        <article class="single-post">
+            <img src="https://via.placeholder.com/400x400" alt="Immagine Hero" class="hero-image">
+            <div class="single-header">
+                <div class="post-date">12.03.26</div>
+                <h3 class="post-title">ARTICOLO BLOG</h3>
+            </div>
+            <div class="single-content">
+                <p>Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance.</p>
+                
+                <img src="https://via.placeholder.com/400x300" alt="Immagine nel testo">
+                
+                <p>Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers.</p>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT PER IL MENU -->
+    <script>
+        function toggleMenu() {
+            var overlay = document.getElementById("menuOverlay");
+            overlay.classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
