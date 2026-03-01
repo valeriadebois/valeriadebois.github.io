@@ -111,6 +111,21 @@
         .about-content p {
             margin-bottom: 20px;
         }
+        .back-link {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 900;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .back-link:hover {
+            color: var(--text-color);
+        }
     </style>
 </head>
 <body>
@@ -127,7 +142,7 @@
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="about.html" onclick="toggleMenu()">About</a>
             <a href="blog.html" onclick="toggleMenu()">Blog</a>
-            <button class="menu-btn" style="margin-top: 40px;" onclick="toggleMenu()">CLOSE [X]</button>
+            <button class="menu-btn" style="margin-top: 40px;" onclick="toggleMenu()">CLOSE</button>
         </div>
 
         <!-- ABOUT VALERIA SECTION -->
@@ -138,6 +153,7 @@
                 <p>Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance.</p>
                 <p>Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers. Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay.</p>
             </div>
+            <a href="index.html" class="back-link">← Back to Home</a>
         </main>
 
     </div>
