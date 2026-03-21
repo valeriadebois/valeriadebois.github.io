@@ -247,15 +247,23 @@
     <div class="mobile-container">
         <!-- HEADER WITH MENU -->
         <header>
-            <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                MENU
+            </button>
         </header>
 
         <!-- Menu Overlay -->
-        <div class="menu-overlay" id="menuOverlay">
-            <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="about.html" onclick="toggleMenu()">About</a>
-            <a href="blog.html" onclick="toggleMenu()">Blog</a>
-            <a href="#" onclick="toggleMenu()">Close</a>
+        <div id="menuOverlay" class="menu-overlay">
+            <a href="index.html" onclick="toggleMenu()">HOME</a>
+            <a href="about.html" onclick="toggleMenu()">ABOUT</a>
+            <a href="blog.html" onclick="toggleMenu()">BLOG</a>
+            <a href="contact.html" onclick="toggleMenu()">CONTACT</a>
+            <button class="menu-btn close" onclick="toggleMenu()" style="margin-top: 40px;">CLOSE</button>
         </div>
 
         <!-- BLOG HERO SECTION -->

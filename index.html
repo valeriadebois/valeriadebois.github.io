@@ -82,9 +82,9 @@
         }
         /* Close Button Styling */
         .menu-btn.close {
-            font-size: 18px;
-            color: var(--sand-dark);
-            font-weight: 700;
+            font-size: 18px !important;
+            color: var(--sand-dark) !important;
+            font-weight: 700 !important;
         }
 
         /* Menu Overlay (Nascosto di default) */
@@ -115,7 +115,7 @@
         }
         .logo-placeholder {
             width: 100%;
-            max-width: 180px;
+            max-width: 170px;
             height: auto;
             background-color: #ffffff;
             margin: -5px auto 15px auto;
@@ -322,10 +322,11 @@
 
         <!-- MENU OVERLAY (Javascript lo mostra/nasconde) -->
         <div id="menuOverlay" class="menu-overlay">
-            <a href="#" onclick="toggleMenu()">Home</a>
-            <a href="about.html" onclick="toggleMenu()">About</a>
-            <a href="blog.html" onclick="toggleMenu()">Blog</a>
-            <button class="menu-btn close" style="margin-top: 40px;" onclick="toggleMenu()">CLOSE</button>
+            <a href="index.html" onclick="toggleMenu()">HOME</a>
+            <a href="about.html" onclick="toggleMenu()">ABOUT</a>
+            <a href="blog.html" onclick="toggleMenu()">BLOG</a>
+            <a href="contact.html" onclick="toggleMenu()">CONTACT</a>
+            <button class="menu-btn close" onclick="toggleMenu()" style="margin-top: 40px;">CLOSE</button>
         </div>
 
         <!-- 1. SIMULAZIONE HOME PAGE -->

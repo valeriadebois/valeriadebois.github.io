@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Valeria De Bois</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&family=Cardo:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: var(--font-serif, 'Lora', serif);
+            color: var(--text-color, #000);
+            background-color: var(--bg-color, #fff);
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .mobile-container {
+            width: 100%;
+            max-width: 430px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .contact-hero {
+            padding: 40px 30px 20px 30px;
+            text-align: center;
+        }
+        .page-title {
+            font-family: var(--font-sans, 'Montserrat', sans-serif);
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .contact-intro {
+            font-size: 17px;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+        .contact-list li {
+            margin-bottom: 18px;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contact-list a {
+            color: var(--text-color, #000);
+            text-decoration: underline;
+            font-weight: 900;
+            font-family: var(--font-sans, 'Montserrat', sans-serif);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-list a:hover {
+            color: var(--sand-dark, #8B7355);
+        }
+        .instagram-logo {
+            width: 35px;
+            height: 35px;
+        }
+        .whatsapp-logo {
+            width: 35px;
+            height: 35px;
+        }
+        .email-logo {
+            width: 40px;
+            height: 40px;
+        }
+        .back-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 40px;
+            font-size: 15px;
+            color: #666;
+            text-decoration: none;
+            font-family: var(--font-sans, 'Montserrat', sans-serif);
+            font-weight: 900;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--text-color, #000);
+        }
+        /* Menu button for consistency */
+        header {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .menu-btn {
+            font-family: var(--font-sans, 'Montserrat', sans-serif);
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color, #000);
+        }
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .hamburger-icon span {
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-color, #000);
+            border-radius: 1px;
+        }
+        .menu-btn.close {
+            font-size: 18px !important;
+            color: var(--sand-dark, #8B7355) !important;
+            font-weight: 700 !important;
+        }
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.95);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu-overlay.active { display: flex; }
+        .menu-overlay a {
+            font-family: var(--font-sans, 'Montserrat', sans-serif);
+            font-size: 24px;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-color, #000);
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 20px 10px 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <header>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                MENU
+            </button>
+        </header>
+        <div id="menuOverlay" class="menu-overlay">
+            <a href="index.html" onclick="toggleMenu()">HOME</a>
+            <a href="about.html" onclick="toggleMenu()">ABOUT</a>
+            <a href="blog.html" onclick="toggleMenu()">BLOG</a>
+            <a href="contact.html" onclick="toggleMenu()">CONTACT</a>
+            <button class="menu-btn close" onclick="toggleMenu()" style="margin-top: 40px;">CLOSE</button>
+        </div>
+        <main>
+            <div class="contact-hero">
+                <h1 class="page-title">CONTACT</h1>
+                <div class="contact-intro">If you want to know more, have questions, or would like to schedule a consultation, feel free to reach out via Instagram, email, or WhatsApp. I look forward to hearing from you!</div>
+                <div class="contact-inperson" style="margin-top: 28px; text-align: left; max-width: 370px; margin-left: auto; margin-right: auto;">
+                    <p style="margin-bottom: 8px;">I currently receive in person at <a href="https://www.centromedicosantommaso.com/" target="_blank" rel="noopener" style="text-decoration: underline; color: var(--text-color, #000); font-weight: 700;">Centro Medico San Tommaso</a>:</p>
+                    <ul style="margin-bottom: 18px; list-style: none; padding-left: 0;">
+                        <li style="font-family: var(--font-serif); font-size: 16px; margin-bottom: 8px; list-style-position: inside; text-align: left; display: flex; align-items: center;">
+                            <span style="display: inline-block; font-size: 1.2em; line-height: 1; margin-right: 10px; margin-left: 2px; vertical-align: middle;">•</span>
+                            <span style="display: inline-block; vertical-align: middle;">
+                                <strong>Ascoli Piceno (AP)</strong> - Via Napoli, 137, 63100 <strong>(<a href="https://maps.app.goo.gl/Ji1A2eHMuUnnM4XPA" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: bold;">Google Maps</a>)</strong>
+                            </span>
+                        </li>
+                        <li style="font-family: var(--font-serif); font-size: 16px; margin-bottom: 8px; list-style-position: inside; text-align: left; display: flex; align-items: center;">
+                            <span style="display: inline-block; font-size: 1.2em; line-height: 1; margin-right: 10px; margin-left: 2px; vertical-align: middle;">•</span>
+                            <span style="display: inline-block; vertical-align: middle;">
+                                <strong>Monsampolo del Tronto (AP)</strong> - Via Nino Bixio, 1, 63077 <strong>(<a href="https://maps.app.goo.gl/YiXYXzm5de6A35vj7" target="_blank" rel="noopener" style="color: #0066cc; text-decoration: underline; font-weight: bold;">Google Maps</a>)</strong>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="contact-list">
+                <li>
+                    <a id="ig-link" href="#" target="_blank" rel="noopener">
+                        <img src="assets/img/logo_instagram.svg" alt="Instagram" class="instagram-logo">
+                        <span id="ig-user"></span>
+                    </a>
+                </li>
+                <li>
+                    <a id="mail-link" href="#">
+                        <img src="assets/img/logo_mail_black.svg" alt="Email" class="email-logo">
+                        <span id="mail-user"></span>
+                    </a>
+                </li>
+                <li>
+                    <a id="wa-link" href="#">
+                        <img src="assets/img/whatsapp_logo_black.svg" alt="WhatsApp" class="whatsapp-logo">
+                        <span id="wa-user"></span>
+                    </a>
+                </li>
+            </ul>
+            <a href="index.html" class="back-link">
+                <span style="font-size:18px;">&#8592;</span> Back to Home
+            </a>
+            </a>
+        </main>
+    </div>
+    <script>
+        function toggleMenu() {
+            var overlay = document.getElementById("menuOverlay");
+            overlay.classList.toggle("active");
+        }
+        // Obfuscate Instagram, Email, WhatsApp
+        document.addEventListener('DOMContentLoaded', function() {
+            // Instagram
+            var igUser = "food_4balance";
+            var igLink = "https://www.instagram.com/" + igUser + "/";
+            document.getElementById('ig-link').href = igLink;
+            document.getElementById('ig-user').textContent = "@" + igUser;
+
+            // Email
+            var mailUser = "nutrizionista.valeriadebois";
+            var mailDomain = "gmail.com";
+            var mailFull = mailUser + "@" + mailDomain;
+            var mailHref = "mailto:" + mailFull + "?subject=Nutrition Inquiry";
+            document.getElementById('mail-link').href = mailHref;
+            document.getElementById('mail-user').textContent = mailFull;
+
+            // WhatsApp
+            var waCountry = "+39";
+            var waNum = "3490798003";
+            var waDisplay = waCountry + " " + waNum.slice(0,3) + " " + waNum.slice(3,6) + " " + waNum.slice(6);
+            var waHref = "https://wa.me/" + waCountry.replace('+','') + waNum;
+            document.getElementById('wa-link').href = waHref;
+            document.getElementById('wa-user').textContent = waDisplay;
+        });
+    </script>
+</body>
+</html>
