@@ -85,11 +85,14 @@
             text-align: center;
         }
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 60vw;
+            max-width: 230px;
+            min-width: 120px;
+            height: auto;
+            aspect-ratio: 1/1;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 30px auto;
+            margin: -30px auto 16px auto;
             display: block;
             border: 3px solid #f0f0f0;
         }
@@ -102,6 +105,7 @@
             margin-bottom: 30px;
         }
         .about-content {
+            text-align: justify;
             font-size: 16px;
             line-height: 1.6;
             text-align: left;
@@ -109,7 +113,20 @@
             margin: 0 auto;
         }
         .about-content p {
-            margin-bottom: 20px;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        .about-content p:last-child {
+            margin-top: 28px;
+        }
+        .about-content ul {
+            padding-left: 1em;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .about-content ul li {
+            margin-bottom: 8px;
+            list-style-position: inside;
         }
         .back-link {
             font-family: var(--font-sans);
@@ -150,8 +167,22 @@
             <img src="assets/img/me.jpg" alt="Valeria De Bois Profile Photo" class="profile-image" />
             <h1 class="about-title">About Me</h1>
             <div class="about-content">
-                <p>Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance.</p>
-                <p>Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers. Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay.</p>
+                <p>Ciao! Sono Valeria, biologa nutrizionista specializzata in nutrizione pediatrica e gestione di patologie dismetaboliche.</p>
+
+                <p>Il mio progetto nasce da un’idea semplice: <em>mangiare bene dovrebbe essere un modo per prendersi cura di sé, non una fonte di stress</em>. Il mio scopo è aiutarti a costruire abitudini alimentari sostenibili nel tempo, con percorsi alimentari equilibrati e flessibili, che non ti facciano sentire costantemente “a dieta”.</p>
+
+                <p>Durante il percorso, l’attenzione non è tanto sul peso, quanto sul tuo quadro di salute complessivo. Considero sempre il paziente nella sua interezza, tenendo conto di fattori genetici, psicologici, e sociali. Mi occupo in particolare di:</p>
+                <ul>
+                    <li>Insulino-resistenza</li>
+                    <li>Dislipidemie</li>
+                    <li>Diabete di tipo 2</li>
+                    <li>Sindrome metabolica</li>
+                    <li>Sindrome dell’ovaio policistico (PCOS)</li>
+                </ul>
+
+                <p>La nutrizione pediatrica è un’altra parte fondamentale del mio lavoro. Affianco famiglie nell’educazione alimentare dei bambini fin dai primi anni di vita, guidando i genitori nelle scelte di oggi, pensando alla salute di domani dei propri figli.</p>
+
+                <p>Visita il mio <a href="blog.html"><b>blog</b></a> per saperne di più oppure <a href="contact.html"><b>scrivimi</b></a> per prenotare la tua prima consulenza! </p>
             </div>
             <a href="index.html" class="back-link">← Back to Home</a>
         </main>

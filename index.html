@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valeria De Bois - Biologa Nutrizionista</title>
+    <meta name="description" content="Valeria De Bois, biologa nutrizionista specializzata in nutrizione pediatrica e trattamento di condizioni metaboliche. Consulenze personalizzate per la tua salute.">
     
-    <!-- Importazione dei Font da Google Fonts (Montserrat per titoli/menu, Lora per il testo) -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&family=Cardo:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
         /* --- STILI BASE E VARIABILI --- */
@@ -14,6 +22,7 @@
             --bg-color: #ffffff;
             --text-color: #000000;
             --card-bg: #f4f2eb; /* Beige chiaro per le card degli articoli */
+            --sand-dark: #8B7355; /* Colore sabbia scuro */
             --font-serif: 'Lora', serif;
             --font-sans: 'Montserrat', sans-serif;
         }
@@ -38,13 +47,12 @@
             width: 100%;
             max-width: 430px; /* Larghezza tipica di un iPhone 14 Pro */
             position: relative;
-            padding-bottom: 50px;
+            padding-bottom: 10px;
         }
 
         /* --- HEADER E MENU --- */
         header {
-            padding: 30px 0;
-        }
+            padding: 20px 0;            text-align: center;        }
 
         .menu-btn {
             font-family: var(--font-sans);
@@ -55,6 +63,27 @@
             border: none;
             cursor: pointer;
             text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Sandwich Icon */
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .hamburger-icon span {
+            width: 20px;
+            height: 2px;
+            background-color: var(--text-color);
+            border-radius: 1px;
+        }
+        /* Close Button Styling */
+        .menu-btn.close {
+            font-size: 18px;
+            color: var(--sand-dark);
+            font-weight: 700;
         }
 
         /* Menu Overlay (Nascosto di default) */
@@ -81,13 +110,14 @@
 
         /* --- SEZIONE HOME --- */
         .home-section {
-            padding: 20px 40px;
+            padding: 5px 40px;
         }
         .logo-placeholder {
-            width: min(150px, 40vw);
-            height: min(150px, 40vw);
+            width: calc(100% - 70px);
+            max-width: 320px;
+            height: min(220px, 55vw);
             background-color: #ffffff;
-            margin: 0 auto 20px auto;
+            margin: -5px auto 15px auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -115,11 +145,36 @@
         .home-intro {
             font-size: 17px;
             line-height: 1.5;
-            margin-top: 40px;
-            margin-bottom: 50px;
+            margin-top: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .home-intro p {
+            margin-bottom: 20px;
+        }
+        .home-intro p:nth-child(2) {
+            margin-bottom: 14px;
+        }
+        .home-intro p.welcome-message {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .welcome-message .brand-name {
+            font-style: italic;
+        }
+        .subtitle {
+            font-family: 'Cardo', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-color);
+            text-align: center;
+            margin-top: 6px;
+            margin-bottom: 10px;
         }
         .home-footer {
-            margin-top: 40px;
+            margin-top: 12px;
         }
         .home-footer p {
             font-style: italic;
@@ -138,9 +193,23 @@
             letter-spacing: 1px;
         }
         .home-footer a img {
-            width: 16px;
-            height: 16px;
             object-fit: contain;
+        }
+        
+        /* Individual logo sizes */
+        .instagram-logo {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .email-logo {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .phone-logo {
+            width: 25px;
+            height: 25px;
         }
 
         /* --- SEZIONE LISTA ARTICOLI (CARD) --- */
@@ -168,7 +237,7 @@
         }
         .post-date {
             font-family: var(--font-sans);
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 900;
             margin-bottom: 5px;
         }
@@ -215,8 +284,8 @@
         /* --- MEDIA QUERIES PER RESPONSIVITÀ --- */
         @media (max-width: 480px) {
             .logo-placeholder {
-                width: 120px;
-                height: 120px;
+                width: 130px;
+                height: 130px;
             }
             
             .home-section {
@@ -226,8 +295,8 @@
 
         @media (max-width: 360px) {
             .logo-placeholder {
-                width: 100px;
-                height: 100px;
+                width: 108px;
+                height: 108px;
             }
         }
     </style>
@@ -238,7 +307,14 @@
 
         <!-- HEADER CON MENU CENTRATO -->
         <header>
-            <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                MENU
+            </button>
         </header>
 
         <!-- MENU OVERLAY (Javascript lo mostra/nasconde) -->
@@ -246,7 +322,7 @@
             <a href="#" onclick="toggleMenu()">Home</a>
             <a href="about.html" onclick="toggleMenu()">About</a>
             <a href="blog.html" onclick="toggleMenu()">Blog</a>
-            <button class="menu-btn" style="margin-top: 40px;" onclick="toggleMenu()">CLOSE</button>
+            <button class="menu-btn close" style="margin-top: 40px;" onclick="toggleMenu()">CLOSE</button>
         </div>
 
         <!-- 1. SIMULAZIONE HOME PAGE -->
@@ -254,26 +330,34 @@
             <div class="logo-placeholder">
                 <img src="assets/img/logo_landing.svg" alt="Valeria De Bois Logo" />
             </div>
+            <div class="subtitle">Biologa Nutrizionista</div>
 
-            <p class="home-intro">
-                Welcome to Food for Balance!<br>
-                I'm Valeria de Bois, a passionate advocate for balanced nutrition and holistic wellness. My journey began with a simple belief: that food should nourish both body and soul.
-            </p>
+            <div class="home-intro">
+                <p class="welcome-message">Welcome to <span class="brand-name">Food for Balance</span>!</p>
+                
+                <p>My name is Valeria and I'm a nutritionist specialized in pediatric nutrition and treatment of metabolic conditions.</p>
+                                
+                <p>Visit my <a href="blog.html" style="color: var(--text-color); text-decoration: underline;"><strong>blog</strong></a> to learn more about me<br>or <a href="contact.html" style="color: var(--text-color); text-decoration: underline;"><strong>reach out</strong></a> to schedule a consultation.</p>
+            </div>
 
             <div class="home-footer">
                 <p>Follow me or write</p>
                 <a href="https://www.instagram.com/food_4balance/" target="_blank" rel="noopener">
-                    <img src="assets/img/logo_instagram.svg" alt="Instagram">
+                    <img src="assets/img/logo_instagram.svg" alt="Instagram" class="instagram-logo">
                     INSTAGRAM
                 </a>
                 <a href="mailto:nutrizionista.valeriadebois@gmail.com?subject=Nutrition Inquiry">
-                    <img src="assets/img/logo_mail.svg" alt="Email">
+                    <img src="assets/img/logo_mail_black.svg" alt="Email" class="email-logo">
                     EMAIL
                 </a>
+                <!-- <a href="#" onclick="callPhone()" id="phoneLink">
+                    <img src="assets/img/logo_phone.svg" alt="Phone" class="phone-logo">
+                    PHONE
+                </a> -->
             </div>
         </main>
 
-        <hr style="margin: 40px 0; border: none; border-top: 2px dashed #ccc;">
+        <hr style="margin: 15px 0; border: none; border-top: 2px dashed #ccc;">
 
         <!-- 2. SIMULAZIONE LISTA ARTICOLI BLOG -->
         <section class="blog-list">
@@ -297,6 +381,17 @@
         function toggleMenu() {
             var overlay = document.getElementById("menuOverlay");
             overlay.classList.toggle("active");
+        }
+        
+        // Phone obfuscation function
+        function callPhone() {
+            // Obfuscated phone number: +39 351 584 6356
+            var part1 = "+39";
+            var part2 = "351";
+            var part3 = "584";
+            var part4 = "6356";
+            var phoneNumber = part1 + part2 + part3 + part4;
+            window.location.href = "tel:" + phoneNumber;
         }
     </script>
 
