@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+        <style>
+            .custom-bullet {
+                display: inline-block;
+                font-size: 1.2em;
+                line-height: 1;
+                margin-right: 10px;
+                margin-left: 2px;
+                vertical-align: middle;
+            }
+        </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Sono - Valeria De Bois</title>
@@ -9,6 +19,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 
     <style>
+                        .about-content ul {
+                            list-style: none;
+                            padding-left: 0.3em;
+                            margin-bottom: 15px;
+                            text-align: left;
+                        }
+                /* Force all links to stay blue even after being visited */
+                a, a:visited {
+                    color: #0066cc;
+                }
         /* --- STILI BASE E VARIABILI --- */
         :root {
             --bg-color: #ffffff;
@@ -121,14 +141,16 @@
             margin-top: 28px;
         }
         .about-content ul {
-            padding-left: 1em;
+            padding-left: 0.25em;
             margin-bottom: 15px;
             text-align: left;
         }
         .about-content ul li {
             margin-bottom: 8px;
-            list-style-position: inside;
+            padding-left: 0;
+            text-indent: 0;
         }
+        
         .back-link {
             font-family: var(--font-sans);
             font-size: 14px;
@@ -175,12 +197,12 @@
 
                 <p>Durante il percorso, l’attenzione non è tanto sul peso, quanto sul tuo quadro di salute complessivo. Considero sempre il paziente nella sua interezza, tenendo conto di fattori genetici, psicologici, e sociali. Mi occupo in particolare di:</p>
                 <ul>
-                    <li>Insulino-resistenza</li>
-                    <li>Dislipidemie</li>
-                    <li>Diabete di tipo 1 e 2</li>
-                    <li>Alimentazione in gravidanza e allattamento</li>
-                    <li>Sindrome dell’ovaio policistico (PCOS)</li>
-                    <li>Sindrome metabolica</li>
+                    <li><span class="custom-bullet">•</span>Insulino-resistenza</li>
+                    <li><span class="custom-bullet">•</span>Dislipidemie</li>
+                    <li><span class="custom-bullet">•</span>Diabete di tipo 1 e 2</li>
+                    <li><span class="custom-bullet">•</span>Alimentazione in gravidanza e allattamento</li>
+                    <li><span class="custom-bullet">•</span>Sindrome dell’ovaio policistico (PCOS)</li>
+                    <li><span class="custom-bullet">•</span>Sindrome metabolica</li>
                 </ul>
 
                 <p>La nutrizione pediatrica è un’altra parte fondamentale del mio lavoro. Affianco famiglie nell’educazione alimentare dei bambini fin dai primi anni di vita, guidando i genitori nelle scelte di oggi, pensando alla salute di domani dei propri figli.</p>

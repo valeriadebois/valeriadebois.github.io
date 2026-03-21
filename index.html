@@ -352,8 +352,16 @@
                 </a>
                 <a href="mailto:nutrizionista.valeriadebois@gmail.com?subject=Nutrition Inquiry">
                     <img src="assets/img/logo_mail_black.svg" alt="Email" class="email-logo">
-                    EMAIL
+                    <span class="email-link">EMAIL</span>
                 </a>
+                        .email-link {
+                            letter-spacing: 1px;
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            font-weight: 900;
+                            font-size: 1.1em;
+                            display: inline-block;
+                        }
                 <!-- <a href="#" onclick="callPhone()" id="phoneLink">
                     <img src="assets/img/logo_phone.svg" alt="Phone" class="phone-logo">
                     PHONE
@@ -390,12 +398,12 @@
         // Phone obfuscation function
         function callPhone() {
             // Obfuscated phone number: +39 351 584 6356
-            var part1 = "+39";
-            var part2 = "351";
-            var part3 = "584";
+            var part1 = "+39 ";
+            var part2 = "351 ";
+            var part3 = "584 ";
             var part4 = "6356";
             var phoneNumber = part1 + part2 + part3 + part4;
-            window.location.href = "tel:" + phoneNumber;
+            window.location.href = "tel:" + phoneNumber.replace(/\s+/g, '');
         }
     </script>
 
