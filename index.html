@@ -114,9 +114,9 @@
             padding: 5px 40px;
         }
         .logo-placeholder {
-            width: calc(100% - 70px);
+            width: 100%;
             max-width: 320px;
-            height: min(220px, 55vw);
+            height: auto;
             background-color: #ffffff;
             margin: -5px auto 15px auto;
             display: flex;
@@ -285,8 +285,9 @@
         /* --- MEDIA QUERIES PER RESPONSIVITÀ --- */
         @media (max-width: 480px) {
             .logo-placeholder {
-                width: 130px;
-                height: 130px;
+                width: 100%;
+                max-width: 220px;
+                height: auto;
             }
             
             .home-section {
@@ -296,8 +297,9 @@
 
         @media (max-width: 360px) {
             .logo-placeholder {
-                width: 108px;
-                height: 108px;
+                width: 100%;
+                max-width: 140px;
+                height: auto;
             }
         }
     </style>
