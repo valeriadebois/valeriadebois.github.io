@@ -2,6 +2,47 @@
 <html lang="it">
 <head>
         <style>
+                                    .menu-btn {
+                                        font-family: var(--font-sans);
+                                        font-size: 20px;
+                                        font-weight: 900;
+                                        letter-spacing: 2px;
+                                        background: none;
+                                        border: none;
+                                        cursor: pointer;
+                                        text-transform: uppercase;
+                                        display: inline-flex;
+                                        align-items: center;
+                                        gap: 10px;
+                                        color: var(--text-color);
+                                    }
+                                    .hamburger-icon {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 3px;
+                                    }
+                                    .hamburger-icon span {
+                                        width: 20px;
+                                        height: 2px;
+                                        background-color: var(--text-color);
+                                        border-radius: 1px;
+                                    }
+                            .hamburger-icon {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 3px;
+                            }
+                            .hamburger-icon span {
+                                width: 20px;
+                                height: 2px;
+                                background-color: var(--text-color);
+                                border-radius: 1px;
+                            }
+                    .menu-btn.close {
+                        font-size: 18px !important;
+                        color: var(--sand-dark, #8B7355) !important;
+                        font-weight: 700 !important;
+                    }
             .custom-bullet {
                 display: inline-block;
                 font-size: 1.2em;
@@ -25,10 +66,7 @@
                             margin-bottom: 15px;
                             text-align: left;
                         }
-                /* Force all links to stay blue even after being visited */
-                a, a:visited {
-                    color: #0066cc;
-                }
+        /* Remove forced blue color for all links to allow .back-link to inherit its intended color */
         /* --- STILI BASE E VARIABILI --- */
         :root {
             --bg-color: #ffffff;
@@ -152,19 +190,21 @@
         }
         
         .back-link {
-            font-family: var(--font-sans);
-            font-size: 14px;
-            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 40px;
+            font-size: 15px;
             color: #666;
             text-decoration: none;
-            text-transform: uppercase;
+            font-family: var(--font-sans, 'Montserrat', sans-serif);
+            font-weight: 900;
             letter-spacing: 1px;
-            display: block;
-            text-align: center;
-            margin-top: 40px;
+            transition: color 0.2s;
         }
         .back-link:hover {
-            color: var(--text-color);
+            color: var(--text-color, #000);
         }
     </style>
 </head>
@@ -174,7 +214,14 @@
 
         <!-- HEADER CON MENU CENTRATO -->
         <header>
-            <button class="menu-btn" onclick="toggleMenu()">MENU</button>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                MENU
+            </button>
         </header>
 
         <!-- MENU OVERLAY (Javascript lo mostra/nasconde) -->
