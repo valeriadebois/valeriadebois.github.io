@@ -1,0 +1,3 @@
+{{- /* True when the menu entry is the current page, or a section that holds it (Blog for an article). */ -}}
+{{- $url := .page.RelPermalink }}
+{{- return or (eq .entry.URL $url) (and (ne .entry.Identifier "home") (hasPrefix $url .entry.URL)) }}

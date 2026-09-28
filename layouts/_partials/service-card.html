@@ -1,0 +1,12 @@
+{{- /* One service card. Call with (dict "s" <service> "list" true "reveal" 0). */ -}}
+<section class="svc-card svc-card--{{ .s.color }}{{ if ne .reveal nil }} reveal{{ end }}"{{ with .reveal }} style="--reveal-i: {{ . }}"{{ end }}>
+  <h2 class="svc-title">{{ .s.title }}</h2>
+  <p class="svc-blurb">{{ .s.blurb }}</p>
+  {{- if .list }}
+  <ul class="svc-list">
+    {{- range .s.items }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</section>

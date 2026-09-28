@@ -1,1 +1,27 @@
-{{ define "main" }}<main></main>{{ end }}
+{{ define "main" }}
+<main class="about-grid">
+  <aside class="about-side">
+    {{ partial "portrait.html" (dict "alt" .Params.photo_alt "class" "about-photo") }}
+    <div class="about-side-meta">
+      <div class="kicker">{{ .Params.education_title }}</div>
+      <ol class="edu-list">
+        {{- range .Params.education }}
+        <li>
+          <span class="edu-dot"></span>
+          <span class="edu-name">{{ .name }}</span>
+          <span class="edu-place">{{ .place }}</span>
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+  </aside>
+
+  <div class="about-body">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <div class="prose">
+      <p class="prose-lead">{{ .Params.lead }}</p>
+      {{ .Content }}
+    </div>
+  </div>
+</main>
+{{ end }}

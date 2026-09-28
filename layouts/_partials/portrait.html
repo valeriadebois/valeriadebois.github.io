@@ -1,0 +1,4 @@
+{{- /* Round portrait. Hugo makes a 600px copy of the 2316px original. */ -}}
+{{- with resources.Get "img/me_about.jpg" }}{{ with .Resize "600x q85" -}}
+<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.alt }}" class="{{ $.class }}">
+{{- end }}{{ end -}}

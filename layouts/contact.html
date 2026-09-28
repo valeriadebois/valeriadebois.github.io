@@ -1,1 +1,30 @@
-{{ define "main" }}<main></main>{{ end }}
+{{ define "main" }}
+<main class="contact-grid">
+  <div>
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="contact-intro">{{ .Params.intro }}</p>
+    <p class="contact-where">{{ .Params.receive_at }} <a href="{{ .Params.center.url }}" target="_blank" rel="noopener">{{ .Params.center.name }}</a>:</p>
+    <ul class="place-list">
+      {{- range .Params.places }}
+      <li>
+        <strong>{{ .name }}</strong> — {{ .address }}<br>
+        <a href="{{ .map }}" target="_blank" rel="noopener" class="map-link">{{ $.Params.map_label }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+  <div class="contact-card">
+    <div class="kicker">{{ .Params.card_title }}</div>
+    <ul class="contact-list">
+      {{- range .Params.contacts }}
+      <li>
+        <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="noopener"{{ end }} class="contact-link">
+          {{ partial "icon.html" (dict "name" .icon "size" "lg") }}
+          {{ .label }}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</main>
+{{ end }}

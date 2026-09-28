@@ -2,7 +2,7 @@
 <nav class="nav">
   <div class="nav-links">
     {{- range site.Menus.main }}
-    <a href="{{ .URL }}" class="nav-link{{ if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} is-active{{ end }}">{{ .Name }}</a>
+    <a href="{{ .URL }}" class="nav-link{{ if partial "menu-active.html" (dict "page" $page "entry" .) }} is-active{{ end }}">{{ .Name }}</a>
     {{- end }}
   </div>
   <div class="nav-tail">

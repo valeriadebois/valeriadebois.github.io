@@ -1,1 +1,18 @@
-{{ define "main" }}<main></main>{{ end }}
+{{ define "main" }}
+<main class="svc-main">
+  <header class="svc-head">
+    <h1 class="page-title">{{ .Title }}</h1>
+  </header>
+
+  <div class="svc-grid">
+    {{- range .Params.services }}
+    {{ partial "service-card.html" (dict "s" . "list" true) }}
+    {{- end }}
+  </div>
+
+  <div class="svc-foot">
+    {{ with resources.Get "img/equilibrio.png" }}<img src="{{ .RelPermalink }}" alt="{{ $.Params.cta_image_alt }}" width="56" height="75">{{ end }}
+    <p>{{ .Params.cta_text }}</p><a href="{{ (site.GetPage "/contatti").RelPermalink }}" class="btn-primary">{{ .Params.cta_label }}</a>
+  </div>
+</main>
+{{ end }}

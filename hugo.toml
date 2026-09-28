@@ -22,6 +22,10 @@ disableKinds = ['taxonomy', 'term', 'rss']
 [markup.goldmark.renderer]
   unsafe = true
 
+# Keep quotes and apostrophes exactly as written (the design text mixes ' and ’).
+[markup.goldmark.extensions.typographer]
+  disable = true
+
 # Nav and footer links, in the design's order. Labels are shown in capitals.
 [[languages.it.menus.main]]
   identifier = 'home'
