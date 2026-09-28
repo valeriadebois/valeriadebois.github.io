@@ -1,0 +1,21 @@
+{{- /* IT / EN switch. Links to the same page in the other language.
+     A language with no version of this page shows as plain text. */ -}}
+{{- $page := . }}
+{{- $flags := dict
+  "it" `<svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#008C45"></rect><rect x="1" width="1" height="2" fill="#F4F5F0"></rect><rect x="2" width="1" height="2" fill="#CD212A"></rect></svg>`
+  "en" `<svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 L60 40 M60 0 L0 40" stroke="#FFFFFF" stroke-width="8"></path><path d="M0 0 L60 40 M60 0 L0 40" stroke="#C8102E" stroke-width="4"></path><path d="M30 0 V40 M0 20 H60" stroke="#FFFFFF" stroke-width="13"></path><path d="M30 0 V40 M0 20 H60" stroke="#C8102E" stroke-width="8"></path></svg>`
+}}
+{{- $names := dict "it" "Italiano" "en" "English" }}
+<div class="lang-pill">
+  {{- range slice "it" "en" }}
+  {{- $lang := . }}
+  {{- $target := "" }}
+  {{- range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
+  {{- $active := eq $page.Language.Lang $lang }}
+  {{- if $target }}
+  <a href="{{ $target }}" class="lang-btn{{ if $active }} is-active{{ end }}" hreflang="{{ $lang }}" title="{{ index $names $lang }}"{{ if $active }} aria-current="true"{{ end }}>{{ index $flags $lang | safeHTML }}{{ upper $lang }}</a>
+  {{- else }}
+  <span class="lang-btn" title="{{ index $names $lang }}">{{ index $flags $lang | safeHTML }}{{ upper $lang }}</span>
+  {{- end }}
+  {{- end }}
+</div>

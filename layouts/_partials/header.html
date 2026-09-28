@@ -1,0 +1,22 @@
+{{- $page := . }}
+<nav class="nav">
+  <div class="nav-links">
+    {{- range site.Menus.main }}
+    <a href="{{ .URL }}" class="nav-link{{ if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} is-active{{ end }}">{{ .Name }}</a>
+    {{- end }}
+  </div>
+  <div class="nav-tail">
+    {{ partial "lang-pill.html" . }}
+  </div>
+  <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-overlay">
+    <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    {{ T "menu" }}
+  </button>
+</nav>
+
+<div class="overlay" id="menu-overlay" hidden>
+  {{- range site.Menus.main }}
+  <a href="{{ .URL }}" class="overlay-link">{{ .Name }}</a>
+  {{- end }}
+  <button type="button" class="overlay-close">{{ T "close" }}</button>
+</div>

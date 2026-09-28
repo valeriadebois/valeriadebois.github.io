@@ -1,0 +1,8 @@
+<footer class="footer">
+  <img src="{{ (resources.Get "img/logo_row.png" | fingerprint).RelPermalink }}" alt="Valeria De Bois, biologa nutrizionista" class="footer-logo" width="257" height="53">
+  <div class="footer-links">
+    {{- range site.Menus.main }}{{ if ne .Identifier "home" }}
+    <a href="{{ .URL }}" class="footer-link">{{ .Name }}</a>
+    {{- end }}{{ end }}
+  </div>
+</footer>

@@ -21,3 +21,30 @@ disableKinds = ['taxonomy', 'term', 'rss']
 
 [markup.goldmark.renderer]
   unsafe = true
+
+# Nav and footer links, in the design's order. Labels are shown in capitals.
+[[languages.it.menus.main]]
+  identifier = 'home'
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[languages.it.menus.main]]
+  identifier = 'about'
+  name = 'Chi sono'
+  pageRef = '/chi-sono'
+  weight = 20
+[[languages.it.menus.main]]
+  identifier = 'services'
+  name = 'Servizi'
+  pageRef = '/servizi'
+  weight = 30
+[[languages.it.menus.main]]
+  identifier = 'blog'
+  name = 'Blog'
+  pageRef = '/blog'
+  weight = 40
+[[languages.it.menus.main]]
+  identifier = 'contact'
+  name = 'Contatti'
+  pageRef = '/contatti'
+  weight = 50
