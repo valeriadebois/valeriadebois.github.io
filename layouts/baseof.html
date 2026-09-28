@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }} – {{ T "role" }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  {{- with .Description | default .Summary }}
+  <meta name="description" content="{{ . | plainify | truncate 160 }}">
+  {{- end }}
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  {{- end }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&amp;family=Cardo:ital,wght@0,400;0,700;1,400&amp;family=Karla:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet">
+  {{- with resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{- end }}
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <div class="page">
+    {{ partial "header.html" . }}
+    <div class="shell">
+      {{ if not .IsHome }}
+      <a href="{{ site.Home.RelPermalink }}" class="back-home">{{ T "backHome" }}</a>
+      {{ end }}
+      {{ block "main" . }}{{ end }}
+      {{ partial "footer.html" . }}
+    </div>
+  </div>
+  {{- with resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{- end }}
+</body>
+</html>

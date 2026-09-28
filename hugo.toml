@@ -1,0 +1,23 @@
+baseURL = 'https://valeriadebois.com/'
+title = 'Valeria De Bois'
+defaultContentLanguage = 'it'
+defaultContentLanguageInSubdir = false
+# English is set up but turned off until the English pages exist.
+disableLanguages = ['en']
+disableKinds = ['taxonomy', 'term', 'rss']
+
+[languages]
+  [languages.it]
+    languageName = 'Italiano'
+    languageCode = 'it-IT'
+    weight = 1
+  [languages.en]
+    languageName = 'English'
+    languageCode = 'en-GB'
+    weight = 2
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -1,1 +1,7 @@
 .DS_Store
+design-export/
+public/
+.hugo_build.lock
+resources/_gen/
+design-check/
+valeriadebois.com.zip
