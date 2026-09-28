@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main class="post-wrap">
+  <a href="{{ .Parent.RelPermalink }}" class="back-link">{{ T "backBlog" }}</a>
+  <div class="card-meta">{{ T "mins" .Params.mins }}</div>
+  <h1 class="post-title">{{ .Title }}</h1>
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+  <div class="post-foot">
+    <a href="{{ .Parent.RelPermalink }}" class="back-link">{{ T "backBlog" }}</a>
+  </div>
+</main>
+{{ end }}

@@ -3,3 +3,5 @@ role: Biologa nutrizionista
 backHome: "← Torna alla home"
 menu: Menu
 close: Chiudi
+backBlog: "← Torna al blog"
+mins: "{{ . }} min di lettura"

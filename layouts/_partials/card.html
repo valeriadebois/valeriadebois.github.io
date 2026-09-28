@@ -1,0 +1,18 @@
+{{- /* Article card. Call with (dict "page" <article> "excerpt" true). */ -}}
+{{- $p := .page }}
+<article class="card">
+  {{- with $p.Resources.GetMatch "card.*" }}
+  <div role="presentation" class="card-img" style="{{ printf "background-image:url(%q); background-color:%s;" .RelPermalink ($p.Params.card_bg | default "#fff") | safeCSS }}"></div>
+  {{- else }}
+  <div class="card-placeholder"><span>{{ $p.Params.image_hint }}</span></div>
+  {{- end }}
+  <div class="card-body">
+    <h3 class="card-title">{{ $p.Title }}</h3>
+    {{- if .excerpt }}
+    <p class="card-excerpt">{{ $p.Params.summary }}</p>
+    {{- end }}
+    <p class="card-mins">{{ T "mins" $p.Params.mins }}</p>
+  </div>
+  {{- /* Covers the whole card, so a click anywhere opens the article. */}}
+  <a href="{{ $p.RelPermalink }}" class="card-link" aria-label="{{ $p.Title }}"></a>
+</article>

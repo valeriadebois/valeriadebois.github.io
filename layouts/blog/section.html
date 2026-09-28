@@ -1,1 +1,20 @@
-{{ define "main" }}<main></main>{{ end }}
+{{ define "main" }}
+<main class="blog-main">
+  <header class="blog-head">
+    <h1 class="page-title">{{ .Title }}</h1>
+  </header>
+  {{- range .Params.sections }}
+  <section class="blog-section">
+    <div class="blog-section-head">
+      <span class="blog-square"></span>
+      <h2 class="blog-section-title">{{ .title }}</h2>
+    </div>
+    <div data-hscroll="1" class="cards">
+      {{- range where $.Pages "Params.blog_section" .n }}
+      {{ partial "card.html" (dict "page" . "excerpt" true) }}
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+</main>
+{{ end }}
