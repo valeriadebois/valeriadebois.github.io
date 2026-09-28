@@ -14,3 +14,15 @@
     if (e.key === 'Escape' && !overlay.hidden) setOpen(false);
   });
 })();
+
+// Home: show the service cards when their section scrolls into view.
+(function () {
+  var section = document.querySelector('[data-reveal]');
+  if (!section) return;
+  function show() { section.classList.add('is-revealed'); }
+  if (!('IntersectionObserver' in window)) { show(); return; }
+  var obs = new IntersectionObserver(function (entries) {
+    if (entries.some(function (e) { return e.isIntersecting; })) { show(); obs.disconnect(); }
+  }, { threshold: 0.18 });
+  obs.observe(section);
+})();

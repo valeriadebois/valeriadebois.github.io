@@ -1,1 +1,101 @@
-{{ define "main" }}<main></main>{{ end }}
+{{ define "main" }}
+{{- $p := .Params }}
+<main>
+  <section class="hero">
+    <div class="hero-band" aria-hidden="true">
+      {{ partial "hero-art.html" . }}
+    </div>
+    <div class="hero-main">
+      <div class="hero-logo">
+        {{ with resources.Get "img/logo_horizontal.png" }}<img src="{{ .RelPermalink }}" alt="{{ $p.logo_alt }}" width="340" height="173">{{ end }}
+      </div>
+      <div class="hero-text">
+        <p class="hero-lead">{{ $p.hero.lead | markdownify }}</p>
+        <p class="hero-p"><span>{{ $p.hero.text | markdownify }}</span></p>
+      </div>
+      <div class="cta-row">
+        {{- range $p.hero.buttons }}
+        <a href="{{ (site.GetPage .page).RelPermalink }}" class="btn-{{ .style }}">{{ .label }}</a>
+        {{- end }}
+      </div>
+      <div class="social-wrap">
+        <div class="social-row">
+          {{- range $p.hero.social }}
+          <a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} target="_blank" rel="noopener"{{ end }} class="social-link">
+            {{ partial "icon.html" (dict "name" .icon "size" "sm") }}
+            {{ .label }}
+          </a>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="block">
+    <div class="block-head">
+      <h2 class="block-title">{{ $p.about.title }}</h2>
+    </div>
+    <div class="home-about-grid">
+      {{ partial "portrait.html" (dict "alt" $p.about.photo_alt "class" "home-about-photo") }}
+      <div>
+        <div class="home-prose">
+          <p class="home-prose-lead">{{ $p.about.lead }}</p>
+          {{- range $p.about.paragraphs }}
+          <p>{{ . }}</p>
+          {{- end }}
+        </div>
+        <a href="{{ (site.GetPage "/chi-sono").RelPermalink }}" class="more-link">{{ $p.about.more }}</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="home-svc" data-reveal>
+    <div class="home-svc-band" aria-hidden="true"></div>
+    <div class="home-svc-head">
+      <div class="block-head">
+        <h2 class="block-title">{{ $p.services.title }}</h2>
+        <a href="{{ (site.GetPage "/servizi").RelPermalink }}" class="more-link">{{ $p.services.more }}</a>
+      </div>
+    </div>
+    <div class="svc-grid">
+      {{- range $i, $s := (site.GetPage "/servizi").Params.services }}
+      {{ partial "service-card.html" (dict "s" $s "reveal" $i) }}
+      {{- end }}
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="block">
+    <div class="block-head">
+      <div>
+        <h2 class="block-title">{{ $p.blog.title }}</h2>
+      </div>
+      <a href="{{ (site.GetPage "/blog").RelPermalink }}" class="more-link">{{ $p.blog.more }}</a>
+    </div>
+    <div data-hscroll="1" class="cards">
+      {{- range sort (where (site.GetPage "/blog").Pages "Params.home" "!=" nil) "Params.home" }}
+      {{ partial "card.html" (dict "page" .) }}
+      {{- end }}
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="block">
+    <div class="block-head">
+      <h2 class="block-title">{{ $p.contact.title }}</h2>
+    </div>
+    <p class="home-lead-wide">{{ $p.contact.lead }}</p>
+    <div class="home-contact-grid">
+      <div>
+        <a href="{{ (site.GetPage "/contatti").RelPermalink }}" class="more-link">{{ $p.contact.more }}</a>
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}
